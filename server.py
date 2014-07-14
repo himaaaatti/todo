@@ -10,6 +10,8 @@ import tornado.web
 import json
 import logging
 
+import DBManager
+
 
 class BaseHandler(RequestHandler):
     def get_current_user(self):
