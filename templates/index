@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Top</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/static/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+            body {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            .navbar {
+                margin-bottom: 20px;
+            }
+
+            /* Customize page footer */
+            .footer {
+                padding-top: 19px;
+                color: #777;
+                border-top: 1px solid #e5e5e5;
+            }
+
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!--        NAVBAR
+            ===============================================================================
+            -->
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".target">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="">TODO Manager</a>
+                </div>
+
+                <div class="collapse navbar-collapse target">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="">Top</a></li>
+                        <li><a href="/mypage">Mypage</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        {% if not current_user %}
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login
+                            <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/twAuth">with Twitter</a></li>
+                        </ul>
+                        </li>
+                        {% else %}
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logout
+                            <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/logout">See you</a></li>
+                        </ul>
+                        </li>
+                        {% end %}
+                        <li><a href="">Setting</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="jumbotron">
+                <h1>Hello</h1>
+
+                {% if not current_user %}
+                <p> Please login </p>
+                {% else %}
+                <p> Hey {{ current_user }} </p>
+                {% end %}
+            </div>
+            
+            <!-- Change Log
+            ===============================================================================
+            -->
+                <p>Change Log</p>
+                <table style="table-layout: fixed;" class="table table-striped table-hover">
+                    <thead>
+                        <tr><th>Date</th><th>Text</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td width="20%">2013/12/30</td><td>Open</td></tr>       
+                    </tbody>
+                </table>
+
+            <!--       FOOTER
+            ===============================================================================
+            -->
+            <div class="footer">
+                <p>&copy; 2013-2014 himaaaatti</p>
+            </div>
+
+        </div><!-- /container-->
+
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="/static/bootstrap.min.js"></script>
+    </body>
+</html>
+
